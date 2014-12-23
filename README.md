@@ -34,6 +34,10 @@ Page type showing scraped svg diagramms from Datawrapper.
     # app/assets/stylesheets/pageflow/editor.scss.css;
     @import "pageflow/chart/editor";
 
+    # Adding basic style to your theme
+    # app/assets/stylesheets/pageflow/themes/default.css.scss
+    @import "pageflow/chart/themes/default";
+
 
 ### Create Proxy
 
