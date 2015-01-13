@@ -2,6 +2,8 @@ de:
   pageflow:
     chart:
       page_type_name: "Diagramm"
+      page_type_category_name: "Daten und Diagramme"
+      page_type_description: "Einbindung von Diagrammen, die mit DataWrapper erstellt wurden"
   activerecord:
     attributes:
       pageflow/page:
