@@ -71,3 +71,9 @@ Example:
 Please see `lib/pageflow/chart/configuration.rb` for the possible options.
 
 TODO: Document config options here
+
+## Contributing Locales
+
+Edit the translations directly on the
+[pageflow-chart](http://www.localeapp.com/projects/public?search=tf/pageflow-chart)
+locale project.
