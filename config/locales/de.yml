@@ -1,10 +1,40 @@
 de:
-  pageflow:
-    chart:
-      page_type_name: "Diagramm"
-      page_type_category_name: "Daten und Diagramme"
-      page_type_description: "Einbindung von Diagrammen, die mit DataWrapper erstellt wurden"
   activerecord:
     attributes:
       pageflow/page:
-        scraped_site_id: "Diagramm URL"
+        scraped_site_id: Diagramm URL
+  pageflow:
+    chart:
+      editor:
+        templates:
+          scraped_site_status:
+            failed: Beim Herunterladen des Diagramms ist ein Fehler aufgetreten.
+            pending: Diagramm wird heruntergeladen...
+      help_entries:
+        page_type:
+          menu_item: Diagramm
+          text: ! '# Diagramm
+
+
+            Einbindung von DataWrapper-Diagrammen
+
+
+            Hier kannst Du Deinen Pageflow um animierte Infografiken ergänzen. Eingebettet ist das
+
+            Diagramm in ein Hintergrund-Bild und Text. Die Infografik lässt sich durch Klicken
+
+            vergrössern.
+
+
+            Dein Diagramm musst Du allerdings zuvor extern erstellen und einen entsprechenden Link generieren. Unter www.datawrapper.de findest Du Beispiele und die Konditionen, um
+
+            diesen Dienst in Anspruch zu nehmen.
+
+
+            Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten'
+      page:
+        toggle: Ansicht vergrößern bzw. verkleinern
+        toggle_title: Ansicht vergrößern bzw. verkleinern
+      page_type_category_name: Daten und Diagramme
+      page_type_description: Einbindung von Diagrammen, die mit DataWrapper erstellt wurden
+      page_type_name: Diagramm
