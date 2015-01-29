@@ -4,22 +4,22 @@ Page type showing scraped svg diagramms from Datawrapper.
 
 ## Installation
 
-### Add this line to your application's Gemfile:
+Add this line to your application's Gemfile:
 
     # Gemfile
     gem 'pagflow-chart'
 
-### Mount the engine:
+Mount the engine:
 
     # config/routes.rb
     mount Pageflow::Chart::Engine, :at => '/chart'
 
-### Register the page type:
+Register the page type:
 
     # config/initializers/pageflow.rb
     config.register_page_type(Pageflow::Chart.page_type)
 
-### Include javascript/stylesheets:
+Include javascript/stylesheets:
 
     # app/assets/javascripts/pageflow/application.js
     //= require "pageflow/chart"
@@ -38,8 +38,12 @@ Page type showing scraped svg diagramms from Datawrapper.
     # app/assets/stylesheets/pageflow/themes/default.css.scss
     @import "pageflow/chart/themes/default";
 
+Install and run migrations:
 
-### Create Proxy
+    rake pageflow_chart:install:migrations
+    rake db:migrate SCOPE=pageflow_chart
+
+## Create Proxy
 
 Create a proxy (via Apache, Nginx, ...) from your domain to your configured
 `S3_HOST_ALIAS` to circumvent the same-domain policy. Configure this
@@ -52,10 +56,8 @@ Example conf snippet for Nginx:
       proxy_redirect http://bucketname.s3-website-eu-west-1.amazonaws.com/ $scheme://$host/datawrapper/;
     }
 
-### Install and run migrations:
-
-    rake pageflow_chart:install:migrations
-    rake db:migrate SCOPE=pageflow_chart
+This is needed so the charts can be servered from the same origin as
+the entry.
 
 ## Configuration
 
@@ -71,6 +73,16 @@ Example:
 Please see `lib/pageflow/chart/configuration.rb` for the possible options.
 
 TODO: Document config options here
+
+## Troubleshooting
+
+If you run into problems while installing the page type, please also
+refer to the
+[Troubleshooting](https://github.com/codevise/pageflow/wiki/Troubleshooting)
+wiki page in the
+[Pageflow repository](https://github.com/codevise/pageflow). If that
+doesn't help, consider
+[filing an issue](https://github.com/codevise/pageflow-chart/issues).
 
 ## Contributing Locales
 
