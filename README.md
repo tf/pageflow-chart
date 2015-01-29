@@ -17,7 +17,7 @@ Page type showing scraped svg diagramms from Datawrapper.
 ### Register the page type:
 
     # config/initializers/pageflow.rb
-    config.register_page_type(Pageflow::Chart::PageType.new)
+    config.register_page_type(Pageflow::Chart.page_type)
 
 ### Include javascript/stylesheets:
 
