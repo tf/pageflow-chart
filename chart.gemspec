@@ -2,10 +2,10 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "pageflow-chart"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Tim Fischbach"]
   spec.email         = ["tfischbach@codevise.de"]
-  spec.summary       = "Pagetype for iframe embedded charts"
+  spec.summary       = "Pagetype for Embedded Datawrapper Charts"
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "pageflow"
+  spec.add_runtime_dependency "pageflow", "~> 0.7"
   spec.add_runtime_dependency "nokogiri"
   spec.add_runtime_dependency "paperclip"
   spec.add_runtime_dependency "state_machine"
