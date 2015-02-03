@@ -1,5 +1,7 @@
 # Pageflow Chart
 
+[![Gem Version](https://badge.fury.io/rb/pageflow-chart.svg)](http://badge.fury.io/rb/pageflow-chart)
+
 Page type showing scraped svg diagramms from Datawrapper.
 
 ## Installation
