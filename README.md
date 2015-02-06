@@ -29,11 +29,11 @@ Include javascript/stylesheets:
     # app/assets/javascripts/pageflow/editor.js
     //= require pageflow/chart/editor
 
-    # app/assets/stylesheets/pageflow/application.ccss.scss;
+    # app/assets/stylesheets/pageflow/application.css.scss;
     @import "pageflow/chart";
 
 
-    # app/assets/stylesheets/pageflow/editor.ccss.scss;
+    # app/assets/stylesheets/pageflow/editor.css.scss;
     @import "pageflow/chart/editor";
 
     # Adding basic style to your theme
