@@ -9,7 +9,7 @@ Page type showing scraped svg diagramms from Datawrapper.
 Add this line to your application's Gemfile:
 
     # Gemfile
-    gem 'pagflow-chart'
+    gem 'pageflow-chart'
 
 Mount the engine:
 
@@ -29,18 +29,18 @@ Include javascript/stylesheets:
     # app/assets/javascripts/pageflow/editor.js
     //= require pageflow/chart/editor
 
-    # app/assets/stylesheets/pageflow/application.scss.css;
+    # app/assets/stylesheets/pageflow/application.css.scss;
     @import "pageflow/chart";
 
 
-    # app/assets/stylesheets/pageflow/editor.scss.css;
+    # app/assets/stylesheets/pageflow/editor.css.scss;
     @import "pageflow/chart/editor";
 
     # Adding basic style to your theme
     # app/assets/stylesheets/pageflow/themes/default.css.scss
     @import "pageflow/chart/themes/default";
 
-Install and run migrations:
+Execute `bundle install` & install and run migrations:
 
     rake pageflow_chart:install:migrations
     rake db:migrate SCOPE=pageflow_chart
