@@ -40,7 +40,7 @@ Include javascript/stylesheets:
     # app/assets/stylesheets/pageflow/themes/default.css.scss
     @import "pageflow/chart/themes/default";
 
-Execute `bundle install` & install and run migrations:
+Execute `bundle install`. Then Install and run migrations:
 
     rake pageflow_chart:install:migrations
     rake db:migrate SCOPE=pageflow_chart
