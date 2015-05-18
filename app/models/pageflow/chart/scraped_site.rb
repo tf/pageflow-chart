@@ -6,6 +6,11 @@ module Pageflow
       has_attached_file :html_file, Chart.config.paperclip_options(extension: 'html')
       has_attached_file :csv_file, Chart.config.paperclip_options(basename: 'data', extension: 'csv')
 
+      do_not_validate_attachment_file_type(:javascript_file)
+      do_not_validate_attachment_file_type(:stylesheet_file)
+      do_not_validate_attachment_file_type(:html_file)
+      do_not_validate_attachment_file_type(:csv_file)
+
       state_machine initial: 'unprocessed' do
         extend StateMachineJob::Macro
 
