@@ -55,9 +55,23 @@ module Pageflow
 
       def default_paperclip_path_options(options)
         {
-          path: File.join(paperclip_base_path, ":class/:id_partition/#{options.fetch(:basename, 'all')}.#{options.fetch(:extension)}")
+          path: File.join(paperclip_base_path, ":class/:id_partition/#{options.fetch(:basename, 'all')}.#{options.fetch(:extension)}"),
+          s3_headers: paperclip_s3_headers(options)
         }
       end
+
+      def paperclip_s3_headers(options)
+        {
+          'Content-Type' => CONTENT_TYPE_MAPPING[options.fetch(:extension)]
+        }
+      end
+
+      CONTENT_TYPE_MAPPING = {
+        'css' => 'text/css',
+        'js' => 'application/javascript',
+        'html' => 'text/html',
+        'csv' => 'text/plain'
+      }
     end
   end
 end
