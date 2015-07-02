@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "pageflow-chart"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Tim Fischbach"]
   spec.email         = ["tfischbach@codevise.de"]
   spec.summary       = "Pagetype for Embedded Datawrapper Charts"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/codevise/pageflow-chart"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

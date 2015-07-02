@@ -1,9 +1,12 @@
 # CHANGELOG
 
-### Changes on `master`
+### Version 0.1.1
 
-[Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.1.0...master)
+[Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.1.0...v0.1.1)
 
+- Bug fix: Support new datawrapper host name.
+  ([#9](https://github.com/codevise/pageflow-chart/pull/9),
+   [#10](https://github.com/codevise/pageflow-chart/pull/10))
 - Bug fix: Save correct content types for scraped files with
   Paperclip 4.x.
   ([#7](https://github.com/codevise/pageflow-chart/pull/7))
