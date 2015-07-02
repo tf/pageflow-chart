@@ -70,11 +70,12 @@ Example:
 
     Pageflow::Chart.configure do |config|
       config.scraped_sites_root_url = '/datawrapper'
+      
+      # Allow scraping charts from custom account URLs
+      config.supported_hosts << 'http://mycustom.datawrapper.de'
     end
 
-Please see `lib/pageflow/chart/configuration.rb` for the possible options.
-
-TODO: Document config options here
+Also see `lib/pageflow/chart/configuration.rb` for the additional options.
 
 ## Troubleshooting
 
