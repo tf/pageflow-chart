@@ -2,6 +2,8 @@
 
 ### Version 0.1.1
 
+2015-07-02
+
 [Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.1.0...v0.1.1)
 
 - Bug fix: Support new datawrapper host name.
