@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "state_machine"
   spec.add_runtime_dependency "state_machine_job"
   spec.add_runtime_dependency 'i18n-js'
+  spec.add_runtime_dependency 'pageflow-public-i18n', '~> 1.0'
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
