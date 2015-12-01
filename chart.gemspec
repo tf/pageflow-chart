@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "pageflow-chart"
-  spec.version       = "0.1.1"
+  spec.version       = "0.2.0.alpha"
   spec.authors       = ["Tim Fischbach"]
   spec.email         = ["tfischbach@codevise.de"]
   spec.summary       = "Pagetype for Embedded Datawrapper Charts"

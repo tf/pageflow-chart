@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### Changes on `master`
+
+None so far.
+
 ### Version 0.1.1
 
 2015-07-02
