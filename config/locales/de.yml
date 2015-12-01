@@ -32,9 +32,6 @@ de:
 
 
             Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten'
-      page:
-        toggle: Ansicht vergrößern bzw. verkleinern
-        toggle_title: Ansicht vergrößern bzw. verkleinern
       page_type_category_name: Daten und Diagramme
       page_type_description: Einbindung von Diagrammen, die mit DataWrapper erstellt wurden
       page_type_name: Diagramm

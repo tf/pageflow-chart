@@ -14,9 +14,6 @@ en:
         page_type:
           menu_item: Chart
           text: ! "# Chart\n\nIntegration of a DataWrapper-Diagram\n\nHere you can add animated infographics to your Pageflow. The diagram is embedded into a background-picture and text. To enlarge the graphic you simply have to click on it. \n\nBut first of all you have to create your graphic externally and generate a link. You can find examples and requirements for this under www.datawrapper.de.\n\nExamples of application: statistics, diagrams, numbers & facts"
-      page:
-        toggle: Toggle
-        toggle_title: Toggle
       page_type_category_name: Data and Charts
       page_type_description: Embedded DataWrapper chart
       page_type_name: Chart
