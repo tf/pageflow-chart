@@ -41,7 +41,11 @@ module Pageflow
         @paperclip_s3_default_options = {}
         @paperclip_base_path = ':host'
         @scraped_sites_root_url = nil
-        @supported_hosts = ['http://cf.datawrapper.de', 'http://datawrapper.dwcdn.de']
+        @supported_hosts = [
+          'http://cf.datawrapper.de',
+          'http://datawrapper.dwcdn.de',
+          'http://datawrapper.dwcdn.net'
+        ]
       end
 
       # @api private
