@@ -16,7 +16,7 @@ de:
           text: ! '# Diagramm
 
 
-            Einbindung von DataWrapper-Diagrammen
+            Einbindung von Datawrapper-Diagrammen
 
 
             Hier kannst Du Deinen Pageflow um animierte Infografiken ergänzen. Eingebettet ist das
@@ -33,5 +33,5 @@ de:
 
             Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten'
       page_type_category_name: Daten und Diagramme
-      page_type_description: Einbindung von Diagrammen, die mit DataWrapper erstellt wurden
+      page_type_description: Einbindung von Diagrammen, die mit Datawrapper erstellt wurden
       page_type_name: Diagramm
