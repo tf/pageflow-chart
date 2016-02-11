@@ -35,6 +35,11 @@ module Pageflow
         end
       end
 
+      before_create do
+        self.use_custom_theme = Chart.config.use_custom_theme
+        true
+      end
+
       def csv_url
         URI.join(url, 'data.csv').to_s
       end

@@ -26,19 +26,20 @@ pageflow.chart.IframeEmbeddedView = Backbone.Marionette.View.extend({
     if (scrapedSiteId) {
       this.scrapedSite = pageflow.chart.scrapedSites.getOrFetch(scrapedSiteId, {
         success: function(scrapedSite) {
-          view.updateSrc(scrapedSite);
+          view.updateAttributes(scrapedSite);
         }
       });
 
-      this.listenTo(this.scrapedSite, 'change', this.updateSrc);
+      this.listenTo(this.scrapedSite, 'change', this.updateAttributes);
     }
   },
 
-  updateSrc: function(scrapedSite) {
+  updateAttributes: function(scrapedSite) {
     scrapedSite = scrapedSite || this.scrapedSite;
 
     if (scrapedSite && scrapedSite.isProcessed()) {
       this.$el.attr('src', scrapedSite.get('html_file_url'));
+      this.$el.attr('data-use-custom-theme', scrapedSite.get('use_custom_theme'));
     }
     else {
       this.$el.attr('src', '');

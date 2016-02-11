@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417112724) do
+ActiveRecord::Schema.define(version: 20160211085234) do
 
   create_table "pageflow_chart_scraped_sites", force: true do |t|
     t.string   "url"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140417112724) do
     t.datetime "csv_file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "use_custom_theme",             default: true, null: false
   end
 
 end

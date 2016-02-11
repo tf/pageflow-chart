@@ -74,6 +74,9 @@ Example:
       
       # Allow scraping charts from custom account URLs
       config.supported_hosts << 'http://mycustom.datawrapper.de'
+
+      # Uncomment to inject custom css into iframe.
+      # config.use_custom_theme = true
     end
 
 Also see `lib/pageflow/chart/configuration.rb` for the additional options.
