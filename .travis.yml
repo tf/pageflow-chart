@@ -7,4 +7,5 @@ sudo: false
 cache: bundler
 
 script:
+  - bin/rake app:db:setup app:db:test:load
   - bin/rspec
