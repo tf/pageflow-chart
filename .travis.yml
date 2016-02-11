@@ -6,6 +6,9 @@ rvm: 2.1
 sudo: false
 cache: bundler
 
+services:
+  - redis-server
+
 script:
   - bin/rake app:db:setup app:db:test:load
   - bin/rspec
