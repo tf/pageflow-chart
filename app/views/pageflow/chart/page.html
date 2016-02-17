@@ -7,16 +7,7 @@
 
   <div class="content">
     <div class="iframeWrapper">
-      <iframe data-src="<%= scraped_site_url(configuration['scraped_site_id']) %>"
-              style="width: 100%; height: 100%"
-              name="°"
-              scrolling="auto"
-              frameborder="0"
-              align="aus"
-              marginheight="15"
-              marginwidth="15"
-              allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-      </iframe>
+      <%= scraped_site_iframe(configuration['scraped_site_id']) %>
       <div class="iframe_overlay"></div>
       <div class="bigscreen_toggler" tabindex="4" title="<%= t('pageflow.public.chart.toggle') %>"><%= t('pageflow.public.chart.toggle') %></div>
     </div>

@@ -32,6 +32,16 @@ module Pageflow
       # @return [Array<String>]
       attr_reader :supported_hosts
 
+      # If enabled, set `has_custom_theme` to `true` for new scraped
+      # sites. This causes styles from `pageflow/chart/custom.scss` to
+      # be injected into their iframe on page creation.
+      #
+      # This used to be the default, but is disabled in favor of
+      # custom Datawrapper themes now.
+      #
+      # @return [Boolean]
+      attr_accessor :use_custom_theme
+
       def initialize
         @scraper_options = {
           head_script_blacklist: [/piwik/],
@@ -46,6 +56,7 @@ module Pageflow
           'http://datawrapper.dwcdn.de',
           'http://datawrapper.dwcdn.net'
         ]
+        @use_custom_theme = false
       end
 
       # @api private

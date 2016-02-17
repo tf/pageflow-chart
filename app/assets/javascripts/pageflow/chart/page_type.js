@@ -34,15 +34,17 @@ pageflow.pageType.register('chart', _.extend({
   },
 
   customizeLayout: function(pageElement, configuration) {
-    if(!this.layoutCustomized) {
-      var iframe = pageElement.find('iframe'),
-       scroller = pageElement.find('.scroller'),
-       iframeOverlay = pageElement.find('.iframe_overlay');
+    var that = this;
+    var iframe = pageElement.find('iframe');
+    var scroller = pageElement.find('.scroller');
+    var iframeOverlay = pageElement.find('.iframe_overlay');
 
+    if(!this.layoutCustomized) {
       iframe.load(function() {
         $(this).contents().find('.fs-btn').css('display','none');
-        $(this).contents().find('head').append('<link rel="stylesheet" type="text/css" href="' + pageflow.chart.assetUrls.customStylesheet + '">');
         $(this).contents().find('body').addClass($("[data-theme]").attr('data-theme'));
+
+        that._injectStylesheets($(this));
 
         if(pageflow.features.has('mobile platform')) {
           setTimeout(function() {
@@ -58,6 +60,20 @@ pageflow.pageType.register('chart', _.extend({
       });
       this.layoutCustomized = true;
     }
+  },
+
+  _injectStylesheets: function(iframe) {
+    if (iframe.data('useCustomTheme')) {
+      this._injectStylesheet(iframe, pageflow.chart.assetUrls.customStylesheet);
+    }
+    else {
+      this._injectStylesheet(iframe, pageflow.chart.assetUrls.transparentBackgroundStylesheet);
+    }
+  },
+
+  _injectStylesheet: function(iframe, path) {
+    head = iframe.contents().find('head');
+    head.append('<link rel="stylesheet" type="text/css" href="' + path + '">');
   },
 
   _initEventSimulation: function(element, iframe, wrapper) {

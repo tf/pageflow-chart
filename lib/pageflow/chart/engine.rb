@@ -6,7 +6,7 @@ module Pageflow
       isolate_namespace Pageflow::Chart
 
       config.autoload_paths << File.join(config.root, 'lib')
-      config.assets.precompile += ['pageflow/chart/custom.css']
+      config.assets.precompile += ['pageflow/chart/custom.css', 'pageflow/chart/transparent_background.css']
 
       config.generators do |g|
         g.test_framework :rspec,:fixture => false
