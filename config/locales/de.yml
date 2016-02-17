@@ -31,6 +31,9 @@ de:
             diesen Dienst in Anspruch zu nehmen.
 
 
+            Beachte, dass Datawrapper ein spezielles Design für Diagramme bietet, die in Pageflow eingebettet werden sollen. Klicke dazu im "Visualisieren" Schritt des Diagramm Assistenten auf das Tab "Design" und wähle "Pageflow" aus. Das Farbschema des Diagramms ist dann für die Verwendung in Pageflow optimiert.
+
+
             Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten'
       page_type_category_name: Daten und Diagramme
       page_type_description: Einbindung von Diagrammen, die mit Datawrapper erstellt wurden
