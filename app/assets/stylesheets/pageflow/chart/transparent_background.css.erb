@@ -1,0 +1,7 @@
+<%=
+  Pageflow::Chart.config.datawrapper_themes_with_transparent_background_support.map do |name|
+    "body.theme-#{name}"
+  end.join(',')
+%> {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
