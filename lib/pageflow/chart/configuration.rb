@@ -42,6 +42,16 @@ module Pageflow
       # @return [Boolean]
       attr_accessor :use_custom_theme
 
+      # List of datawrapper theme names for which an additional css
+      # rule shall be injected to make the background
+      # transparent. This is only recommended for themes with dark
+      # backgrounds. By default, this is only done for the `pageflow`
+      # theme.
+      #
+      # @since edge
+      # @return [Array<String>]
+      attr_reader :datawrapper_themes_with_transparent_background_support
+
       def initialize
         @scraper_options = {
           head_script_blacklist: [/piwik/],
@@ -57,6 +67,7 @@ module Pageflow
           'http://datawrapper.dwcdn.net'
         ]
         @use_custom_theme = false
+        @datawrapper_themes_with_transparent_background_support = ['pageflow']
       end
 
       # @api private
