@@ -1,0 +1,10 @@
+de:
+  pageflow:
+    chart:
+      editor:
+        templates:
+          datawrapper_ad:
+            create_chart: "Neues Datawrapper Diagramm erstellen"
+      page_attributes:
+        scraped_site_id:
+          inline_help: "URL zu einem bei Datawrapper publiziertem Diagramm. Datawrapper bietet in den Diagramm Optionen ein spezielles 'Pageflow' Design für eine optimale Darstellung innerhalb des Beitrags. "

@@ -1,0 +1,10 @@
+en:
+  pageflow:
+    chart:
+      editor:
+        templates:
+          datawrapper_ad:
+            create_chart: "Create new Datawrapper chart"
+      page_attributes:
+        scraped_site_id:
+          inline_help: "URL of a chart published via Datawrapper. Datawrapper offers a special 'Pageflow' layout selectable on the 'Design' tab for optimal display inside Pageflow."

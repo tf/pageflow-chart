@@ -12,6 +12,7 @@ pageflow.ConfigurationEditorView.register('chart', {
         displayPropertyName: 'display_scraped_site_url',
         required: true
       });
+      this.view(pageflow.chart.DatawrapperAdView);
       this.input('background_image_id', pageflow.FileInputView, {collection: pageflow.imageFiles});
       this.input('thumbnail_image_id', pageflow.FileInputView, {
         collection: pageflow.imageFiles,
