@@ -96,6 +96,7 @@
 
     &:hover .bigscreen_toggler, &.hovering .bigscreen_toggler {
       opacity: 1;
+      visibility: hidden;
     }
 
     .bigScreen & {
