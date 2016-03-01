@@ -40,21 +40,17 @@
       opacity: 0;
     }
 
-    &:before {
-      padding: 15px;
+    &::before {
       background-color: #191919;
       background-color: rgba(25,25,25, 0.9);
       box-shadow: rgba(0,0,0,0.5) 0 0 3px 0px;
       content: "";
       position: absolute;
-      top: -15px;
-      left: -15px;
       width: 100%;
       z-index: -1;
       height: 100%;
 
       @include phone {
-        padding: 15px 0;
         left: 0;
       }
     }

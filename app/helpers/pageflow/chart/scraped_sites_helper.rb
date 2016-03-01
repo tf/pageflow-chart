@@ -6,8 +6,6 @@ module Pageflow
         scrolling: 'auto',
         frameborder: '0',
         align: 'aus',
-        marginheight: '15',
-        marginwidth: '15',
         allowfullscreen: 'true',
         mozallowfullscreen: 'true',
         webkitallowfullscreen: 'true'
