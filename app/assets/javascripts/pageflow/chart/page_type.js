@@ -77,20 +77,33 @@ pageflow.pageType.register('chart', _.extend({
   },
 
   _initEventSimulation: function(element, iframe, wrapper) {
-    var propagatedEvents = 'click mousemove mouseup mouseover mousedown';
-    var lastElement;
-    element.on(propagatedEvents, function(event) {
+    element.on('click', function(event) {
       var contentElement = iframe.contents()[0];
-      element.css('display','none');
+
+      element.css('display', 'none');
+
       if (contentElement && event) {
-        lastElement = $(contentElement.elementFromPoint(event.pageX-iframe.offset().left, event.pageY-iframe.offset().top));
-        lastElement.simulate("mousedown", event);
-        lastElement.simulate("mousemove", event);
-        lastElement.simulate("click", event);
+        var offset = iframe.offset();
+        var options = $.extend({}, event, {
+          screenX: event.screenX - offset.left,
+          screenY: event.screenY - offset.top,
+          clientX: event.clientX - offset.left,
+          clientY: event.clientY - offset.top,
+        });
+
+        var lastElement = $(contentElement.elementFromPoint(event.pageX - offset.left,
+                                                            event.pageY - offset.top));
+
+        lastElement.simulate('mousedown', options);
+        lastElement.simulate('mousemove', options);
+        lastElement.simulate('click', options);
+        lastElement.simulate('mouseup', options);
 
         element.css('cursor', lastElement.css('cursor'));
       }
-      element.css('display','block');
+
+      element.css('display', 'block');
+
       event.preventDefault();
       event.stopPropagation();
     });
