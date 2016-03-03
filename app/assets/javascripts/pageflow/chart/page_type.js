@@ -157,6 +157,12 @@ pageflow.pageType.register('chart', _.extend({
     pageElement.find('.shadow').css({
       opacity: configuration.get('gradient_opacity') / 100
     });
+
+    if(configuration.hasChanged('full_width')) {
+      $('body').toggleClass('bigScreen', false);
+    }
+
+    this.resize(pageElement, configuration.attributes);
   },
 
   embeddedEditorViews: function() {

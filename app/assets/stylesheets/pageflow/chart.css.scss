@@ -33,6 +33,10 @@
         top: 5%;
         margin-top: 0;
       }
+
+      .bigscreen_toggler{
+        visibility: visible;
+      }
     }
 
     .hideText & {
@@ -87,6 +91,7 @@
       opacity: 0;
       cursor: pointer;
       display: none;
+      visibility: hidden;
       @include transition(opacity 0.5s ease);
 
       .has_mobile_platform & {
@@ -96,7 +101,6 @@
 
     &:hover .bigscreen_toggler, &.hovering .bigscreen_toggler {
       opacity: 1;
-      visibility: hidden;
     }
 
     .bigScreen & {
