@@ -7,6 +7,10 @@
     height: 400px;
     position: relative;
 
+    @media (min-width: 1500px) {
+      height: 800px;
+    }
+
     .hidden &, .hideText & {
       @include transition(0.7s ease);
     }
