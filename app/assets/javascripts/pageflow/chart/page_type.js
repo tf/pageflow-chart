@@ -18,10 +18,14 @@ pageflow.pageType.register('chart', _.extend({
 
   resize: function(pageElement, configuration) {
     var iframeWrapper = pageElement.find('.iframeWrapper'),
-      pageHeader = pageElement.find('.page_header'),
-      scroller = pageElement.find('.scroller');
+        pageHeader = pageElement.find('.page_header'),
+        scroller = pageElement.find('.scroller'),
+        fullWidth = configuration.full_width,
+        widescreened = pageElement.width() > 1430;
 
-    var widescreened = pageElement.width() > 1430;
+    if (fullWidth) {
+      widescreened = false;
+    }
 
     iframeWrapper.toggleClass('widescreened', widescreened);
 
@@ -153,6 +157,12 @@ pageflow.pageType.register('chart', _.extend({
     pageElement.find('.shadow').css({
       opacity: configuration.get('gradient_opacity') / 100
     });
+
+    if (configuration.hasChanged('full_width')) {
+      $('body').removeClass('bigScreen');
+    }
+
+    this.resize(pageElement, configuration.attributes);
   },
 
   embeddedEditorViews: function() {

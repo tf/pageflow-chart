@@ -1,0 +1,7 @@
+de:
+  pageflow:
+    chart:
+      page_attributes:
+        full_width:
+          inline_help: Verbreitert das Diagramm, so dass es die maximal verfügbare Breite nutzt.
+          label: Gesamte Breite nutzen

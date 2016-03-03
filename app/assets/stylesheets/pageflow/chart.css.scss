@@ -7,6 +7,10 @@
     height: 400px;
     position: relative;
 
+    @media (min-width: 1500px) {
+      height: 800px;
+    }
+
     .hidden &, .hideText & {
       @include transition(0.7s ease);
     }
@@ -32,6 +36,10 @@
         height: 90%;
         top: 5%;
         margin-top: 0;
+      }
+
+      .bigscreen_toggler{
+        visibility: visible;
       }
     }
 
@@ -87,6 +95,7 @@
       opacity: 0;
       cursor: pointer;
       display: none;
+      visibility: hidden;
       @include transition(opacity 0.5s ease);
 
       .has_mobile_platform & {
