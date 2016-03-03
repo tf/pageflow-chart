@@ -4,4 +4,8 @@ de:
       page_attributes:
         full_width:
           inline_help: Extends the chart to use the maximum width available.
+<<<<<<< Updated upstream
           label: use full width
+=======
+          label: Use full width
+>>>>>>> Stashed changes

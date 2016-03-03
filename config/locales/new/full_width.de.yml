@@ -4,4 +4,8 @@ de:
       page_attributes:
         full_width:
           inline_help: Verbreitert das Diagramm, so dass es die maximal verfügbare Breite nutzt.
+<<<<<<< Updated upstream
           label: gesamte Breite nutzen
+=======
+          label: Gesamte Breite nutzen
+>>>>>>> Stashed changes
