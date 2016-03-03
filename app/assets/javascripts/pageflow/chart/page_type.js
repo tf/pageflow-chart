@@ -23,7 +23,7 @@ pageflow.pageType.register('chart', _.extend({
         fullWidth = configuration.full_width,
         widescreened = pageElement.width() > 1430;
 
-    if(fullWidth) {
+    if (fullWidth) {
       widescreened = false;
     }
 
@@ -158,8 +158,8 @@ pageflow.pageType.register('chart', _.extend({
       opacity: configuration.get('gradient_opacity') / 100
     });
 
-    if(configuration.hasChanged('full_width')) {
-      $('body').toggleClass('bigScreen', false);
+    if (configuration.hasChanged('full_width')) {
+      $('body').removeClass('bigScreen');
     }
 
     this.resize(pageElement, configuration.attributes);
