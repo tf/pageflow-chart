@@ -48,7 +48,7 @@ module Pageflow
       # backgrounds. By default, this is only done for the `pageflow`
       # theme.
       #
-      # @since edge
+      # @since 0.2
       # @return [Array<String>]
       attr_reader :datawrapper_themes_with_transparent_background_support
 
