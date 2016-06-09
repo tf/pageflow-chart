@@ -84,6 +84,22 @@ module Pageflow
 
           expect(result).to eq("aaa;bbb;")
         end
+
+        it 'allows to wrap file contents' do
+          downloader = Downloader.new
+          result = ''
+
+          stub_request(:get, "http://example.com/a").to_return(status: 200, body: 'aaa')
+          stub_request(:get, "http://example.com/b").to_return(status: 200, body: 'bbb')
+
+          downloader.load_all(['http://example.com/a', 'http://example.com/b'],
+                              before_each: 'try {',
+                              after_each: '} catch(e) {}') do |io|
+            result = io.read
+          end
+
+          expect(result).to eq("try {aaa} catch(e) {}\ntry {bbb} catch(e) {}\n")
+        end
       end
     end
   end

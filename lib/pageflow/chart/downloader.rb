@@ -26,12 +26,15 @@ module Pageflow
 
         begin
           urls.map do |url|
+            file.write(options[:before_each]) if options.key?(:before_each)
+
             load(url) do |source|
               while data = source.read(16 * 1024)
                 file.write(data)
               end
             end
 
+            file.write(options[:after_each]) if options.key?(:after_each)
             file.write(options.fetch(:separator, "\n"))
           end
 
