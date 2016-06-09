@@ -1,7 +1,0 @@
-en:
-  pageflow:
-    chart:
-      page_attributes:
-        full_width:
-          inline_help: Extends the chart to use the maximum width available.
-          label: Use full width

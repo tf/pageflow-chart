@@ -7,34 +7,35 @@ de:
     chart:
       editor:
         templates:
+          datawrapper_ad:
+            create_chart: Neues Datawrapper Diagramm erstellen
           scraped_site_status:
             failed: Beim Herunterladen des Diagramms ist ein Fehler aufgetreten.
             pending: Diagramm wird heruntergeladen...
       help_entries:
         page_type:
           menu_item: Diagramm
-          text: ! '# Diagramm
-
+          text: |-
+            # Diagramm
 
             Einbindung von Datawrapper-Diagrammen
 
-
             Hier kannst Du Deinen Pageflow um animierte Infografiken ergänzen. Eingebettet ist das
-
             Diagramm in ein Hintergrund-Bild und Text. Die Infografik lässt sich durch Klicken
-
             vergrössern.
 
-
             Dein Diagramm musst Du allerdings zuvor extern erstellen und einen entsprechenden Link generieren. Unter www.datawrapper.de findest Du Beispiele und die Konditionen, um
-
             diesen Dienst in Anspruch zu nehmen.
-
 
             Beachte, dass Datawrapper ein spezielles Design für Diagramme bietet, die in Pageflow eingebettet werden sollen. Klicke dazu im "Visualisieren" Schritt des Diagramm Assistenten auf das Tab "Design" und wähle "Pageflow" aus. Das Farbschema des Diagramms ist dann für die Verwendung in Pageflow optimiert.
 
-
-            Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten'
+            Typische Anwendungsbeispiele: Statistiken, Diagramme, Zahlen&Fakten
+      page_attributes:
+        full_width:
+          inline_help: Verbreitert das Diagramm, so dass es die maximal verfügbare Breite nutzt.
+          label: Gesamte Breite nutzen
+        scraped_site_id:
+          inline_help: 'URL zu einem bei Datawrapper publiziertem Diagramm. Datawrapper bietet in den Diagramm Optionen ein spezielles ''Pageflow'' Design für eine optimale Darstellung innerhalb des Beitrags. '
       page_type_category_name: Daten und Diagramme
       page_type_description: Einbindung von Diagrammen, die mit Datawrapper erstellt wurden
       page_type_name: Diagramm
