@@ -1,5 +1,18 @@
 # CHANGELOG
 
+### Version 0.2.1
+
+2017-07-12
+
+[Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.2.0...v0.2.1)
+
+- Update datawrapper scraping
+  ([#36](https://github.com/codevise/pageflow-chart/pull/36))
+- Ensure custom theme attribute is evaluated correctly
+  ([#28](https://github.com/codevise/pageflow-chart/pull/28))
+- Fix test suite
+  ([#27](https://github.com/codevise/pageflow-chart/pull/27))
+
 ### Version 0.2.0
 
 2016-06-09
