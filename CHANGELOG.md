@@ -4,7 +4,15 @@
 
 [Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.2.0...master)
 
-None so far.
+- Allow to use background video
+  ([#29](https://github.com/codevise/pageflow-chart/pull/29),
+   [#30](https://github.com/codevise/pageflow-chart/pull/30))
+- Bug fix: Ensure custom theme attribute is evaluated correctly
+  ([#28](https://github.com/codevise/pageflow-chart/pull/28))
+- Fix test suite
+  ([#27](https://github.com/codevise/pageflow-chart/pull/27))
+- Drop the superfluous .css extension
+  ([#34](https://github.com/codevise/pageflow-chart/pull/34))
 
 ### Version 0.2.0
 
