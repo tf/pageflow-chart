@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### Version 0.2.2
+
+2017-07-12
+
+[Compare changes](https://github.com/codevise/pageflow-chart/compare/v0.2.1...v0.2.2)
+
+- Follow redirects from refresh meta tags
+  ([#37](https://github.com/codevise/pageflow-chart/pull/37))
+
 ### Version 0.2.1
 
 2017-07-12
