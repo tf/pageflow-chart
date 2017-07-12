@@ -11,7 +11,7 @@ module Pageflow
       end
 
       def perform(scraped_site)
-        downloader.load(scraped_site.url) do |file|
+        downloader.load_following_refresh_tags(scraped_site.url) do |file|
           scraper = Scraper.new(file.read, Chart.config.scraper_options)
           scraped_site.html_file = StringIOWithContentType.new(
             scraper.html,
@@ -42,7 +42,8 @@ module Pageflow
 
       def self.perform_with_result(scraped_site, options = {})
         # This is were the downloader passed to `initialize` is created.
-        new(Downloader.new(base_url: scraped_site.url)).perform(scraped_site)
+        new(RefreshTagFollowingDownloader.new(Downloader.new(base_url: scraped_site.url)))
+          .perform(scraped_site)
       end
 
       def begin_try_catch
