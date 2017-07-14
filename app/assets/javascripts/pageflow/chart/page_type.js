@@ -23,7 +23,7 @@ pageflow.react.registerPageTypeWithDefaultBackground('chart', {
     var scroller = pageElement.find('.scroller');
     var fullWidth = configuration.full_width;
 
-    pageTitle.toggleClass('title-for_split_layout', !fullWidth);
+    pageElement.toggleClass('page-with_split_layout', !fullWidth);
 
     var splitLayout = this.wideEnoughForSplitLayout(pageElement) && !fullWidth;
 
