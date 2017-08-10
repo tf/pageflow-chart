@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### Changes on `master`
+### Unreleased Changes
 
 [Compare changes](https://github.com/codevise/pageflow-chart/compare/0-2-stable...master)
 
@@ -10,4 +10,6 @@
 - Drop the superfluous .css extension
   ([#34](https://github.com/codevise/pageflow-chart/pull/34))
 
-See [0-2-stable branch](https://github.com/codevise/pageflow-chart/blob/0-2-stable/CHANGELOG.md) for previous changes.
+See
+[0-2-stable branch](https://github.com/codevise/pageflow-chart/blob/0-2-stable/CHANGELOG.md)
+for previous changes.
