@@ -4,32 +4,33 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pageflow/chart/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "pageflow-chart"
+  spec.name          = 'pageflow-chart'
   spec.version       = Pageflow::Chart::VERSION
-  spec.authors       = ["Tim Fischbach"]
-  spec.email         = ["tfischbach@codevise.de"]
-  spec.summary       = "Pagetype for Embedded Datawrapper Charts"
-  spec.homepage      = "https://github.com/codevise/pageflow-chart"
-  spec.license       = "MIT"
+  spec.authors       = ['Codevise Solutions Ltd']
+  spec.email         = ['info@codevise.de']
+  spec.summary       = 'Pagetype for Embedded Datawrapper Charts'
+  spec.homepage      = 'https://github.com/codevise/pageflow-chart'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency "pageflow", "~> 12.0.pre"
-  spec.add_runtime_dependency "nokogiri"
-  spec.add_runtime_dependency "paperclip", "~> 4.2"
-  spec.add_runtime_dependency "state_machine"
-  spec.add_runtime_dependency "state_machine_job"
-  spec.add_runtime_dependency 'i18n-js'
+  spec.required_ruby_version = '~> 2.1'
+
+  spec.add_runtime_dependency 'pageflow', '~> 12.x'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.0'
+  spec.add_runtime_dependency 'paperclip', '~> 4.2'
+  spec.add_runtime_dependency 'state_machine', '~> 1.2'
+  spec.add_runtime_dependency 'state_machine_job', ['>= 0.2', '< 2']
   spec.add_runtime_dependency 'pageflow-public-i18n', '~> 1.0'
 
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec-rails", "~> 2.0"
-  spec.add_development_dependency 'factory_girl_rails'
-  spec.add_development_dependency "sqlite3"
-  spec.add_development_dependency "webmock"
+  spec.add_development_dependency 'bundler', '~> 1.0'
+  spec.add_development_dependency 'rake', '~> 12.0'
+  spec.add_development_dependency 'rspec-rails', '~> 3.0'
+  spec.add_development_dependency 'factory_girl_rails', '~> 4.5'
+  spec.add_development_dependency 'sqlite3', '~> 1.3'
+  spec.add_development_dependency 'webmock', '~> 3.0'
 
   # Semantic versioning rake tasks
   spec.add_development_dependency 'semmy', '~> 1.0'
