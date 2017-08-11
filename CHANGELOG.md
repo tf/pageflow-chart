@@ -1,19 +1,11 @@
 # CHANGELOG
 
-### Version 1.0.0
+### Unreleased Changes
 
-2017-08-11
+[Compare changes](https://github.com/codevise/pageflow-chart/compare/1-0-stable...master)
 
-[Compare changes](https://github.com/codevise/pageflow-chart/compare/0-2-stable...v1.0.0)
-
-- Allow to use background video
-  ([#29](https://github.com/codevise/pageflow-chart/pull/29),
-   [#30](https://github.com/codevise/pageflow-chart/pull/30))
-- Drop the superfluous .css extension
-  ([#34](https://github.com/codevise/pageflow-chart/pull/34))
-- Improve gemspec
-  ([#38](https://github.com/codevise/pageflow-chart/pull/38))
+None so far.
 
 See
-[0-2-stable branch](https://github.com/codevise/pageflow-chart/blob/0-2-stable/CHANGELOG.md)
+[1-0-stable branch](https://github.com/codevise/pageflow-chart/blob/1-0-stable/CHANGELOG.md)
 for previous changes.
