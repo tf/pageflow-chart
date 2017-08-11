@@ -15,12 +15,12 @@ Add this line to your application's Gemfile:
 Mount the engine:
 
     # config/routes.rb
-    mount Pageflow::Chart::Engine, :at => '/chart'
+    mount Pageflow::Chart::Engine, at: '/chart'
 
 Register the page type:
 
     # config/initializers/pageflow.rb
-    config.register_page_type(Pageflow::Chart.page_type)
+    config.page_types.register(Pageflow::Chart.page_type)
 
 Include javascript/stylesheets:
 
@@ -30,15 +30,15 @@ Include javascript/stylesheets:
     # app/assets/javascripts/pageflow/editor.js
     //= require pageflow/chart/editor
 
-    # app/assets/stylesheets/pageflow/application.css.scss;
+    # app/assets/stylesheets/pageflow/application.scss;
     @import "pageflow/chart";
 
 
-    # app/assets/stylesheets/pageflow/editor.css.scss;
+    # app/assets/stylesheets/pageflow/editor.scss;
     @import "pageflow/chart/editor";
 
     # Adding basic style to your theme
-    # app/assets/stylesheets/pageflow/themes/default.css.scss
+    # app/assets/stylesheets/pageflow/themes/default.scss
     @import "pageflow/chart/themes/default";
 
 Execute `bundle install`. Then Install and run migrations:
@@ -71,7 +71,7 @@ Example:
 
     Pageflow::Chart.configure do |config|
       config.scraped_sites_root_url = '/datawrapper'
-      
+
       # Allow scraping charts from custom account URLs
       config.supported_hosts << 'http://mycustom.datawrapper.de'
 
