@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### Version 1.0.1
+
+2017-08-17
+
+[Compare changes](https://github.com/codevise/pageflow-chart/compare/v1.0.0...v1.0.1)
+
+- Try to minimize changes in script tag order
+  ([#39](https://github.com/codevise/pageflow-chart/pull/39))
+
 ### Version 1.0.0
 
 2017-08-11
