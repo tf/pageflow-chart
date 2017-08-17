@@ -67,13 +67,18 @@ module Pageflow
       end
 
       def combine_script_tags_in_head
-        script_src_tags_in_head.each(&:remove)
+        script_tags_to_remove = script_src_tags_in_head
+        return if script_tags_to_remove.empty?
 
         all_script_src_tag = Nokogiri::XML::Node.new('script', document)
         all_script_src_tag[:src] = 'all.js'
         all_script_src_tag[:type] = 'text/javascript'
-        document.at_css('head').children.first
-                .add_previous_sibling(all_script_src_tag)
+
+        script_tags_to_remove
+          .first
+          .add_previous_sibling(all_script_src_tag)
+
+        script_tags_to_remove.each(&:remove)
       end
 
       def combine_css_link_tags
