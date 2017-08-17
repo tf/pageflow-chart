@@ -37,6 +37,34 @@ module Pageflow
           expect(HtmlFragment.new(scraper.html)).to have_tag('head script[src="all.js"]')
         end
 
+        it 'inserts script tag at position of first script src tag to keep position' \
+           'between inline scripts' do
+          html = <<-HTML
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <script id="setup">
+                  // Some setup required for scripts below to execute
+                </script>
+                <script type="text/javascript" src="/some.js"></script>
+                <script type="text/javascript" src="/other.js"></script>
+                <script id="usage">
+                  // Some script using stuff loading above
+                </script>
+              </head>
+              <body>
+              </body>
+            </html>
+          HTML
+          scraper = Scraper.new(html)
+
+          fragment = HtmlFragment.new(scraper.html)
+
+          expect(fragment).to have_tags_in_order('head script#setup',
+                                                 'head script[src="all.js"]',
+                                                 'head script#usage')
+        end
+
         it 'combines link tags in head' do
           html = <<-HTML
             <!DOCTYPE html>
