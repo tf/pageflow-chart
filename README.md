@@ -52,15 +52,16 @@ Create a proxy (via Apache, Nginx, ...) from your domain to your configured
 `S3_HOST_ALIAS` to circumvent the same-domain policy. Configure this
 in your Pageflow Chart initializer `config/initializers/pageflow_chart.rb`.
 
-Example conf snippet for Nginx:
+Example conf snippet for Nginx. Add this `location` block inside every `server` that's being used by Ruby/Rails.
 
     location /datawrapper/ {
       proxy_pass http://bucketname.s3-website-eu-west-1.amazonaws.com/;
       proxy_redirect http://bucketname.s3-website-eu-west-1.amazonaws.com/ $scheme://$host/datawrapper/;
     }
 
-This is needed so the charts can be servered from the same origin as
-the entry.
+Normally you will do in two servers: the one that has `listen 80` in it
+and the other one which has `listen 443' in it (for https). This is needed
+so the charts can be servered from the same origin a the entry.
 
 ## Configuration
 
