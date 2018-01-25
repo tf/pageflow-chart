@@ -27,7 +27,7 @@
       width: 45%;
       height: 95%;
       max-height: 600px;
-      right: 10%;
+      @include position-end(10%);
       margin-top: 16%;
       margin-bottom: 0;
       z-index: 1;
@@ -76,8 +76,8 @@
     }
 
     .text_position_right &.widescreened {
-      right: auto;
-      left: 8%;
+      @include position-end(auto);
+      @include position-start(8%);
       width: 42%;
     }
 
