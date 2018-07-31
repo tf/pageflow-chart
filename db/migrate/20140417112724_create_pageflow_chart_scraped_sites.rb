@@ -1,4 +1,4 @@
-class CreatePageflowChartScrapedSites < ActiveRecord::Migration
+class CreatePageflowChartScrapedSites < ActiveRecord::Migration[4.2]
   def change
     create_table :pageflow_chart_scraped_sites do |t|
       t.string :url

@@ -1,5 +1,5 @@
 language: ruby
-rvm: 2.1.7
+rvm: 2.3
 
 # User container based travis infrastructure which allows caching
 # features for open source projects.
@@ -10,5 +10,4 @@ services:
   - redis-server
 
 script:
-  - bin/rake app:db:setup app:db:test:load
   - bin/rspec

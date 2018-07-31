@@ -1,7 +1,3 @@
-require 'paperclip'
-require 'state_machine'
-require 'state_machine_job'
-
 require 'pageflow/chart/engine'
 
 module Pageflow

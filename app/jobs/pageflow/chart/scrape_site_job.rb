@@ -1,16 +1,13 @@
 module Pageflow
   module Chart
-    class ScrapeSiteJob
-      extend StateMachineJob
-      @queue = :scraping
+    class ScrapeSiteJob < ActiveJob::Base
+      queue_as :scraping
 
-      attr_reader :downloader
+      include StateMachineJob
 
-      def initialize(downloader)
-        @downloader = downloader
-      end
-
-      def perform(scraped_site)
+      def perform_with_result(scraped_site,
+                              _options = {},
+                              downloader: downloader_for(scraped_site))
         downloader.load_following_refresh_tags(scraped_site.url) do |file|
           scraper = Scraper.new(file.read, Chart.config.scraper_options)
           scraped_site.html_file = StringIOWithContentType.new(
@@ -40,10 +37,10 @@ module Pageflow
         :ok
       end
 
-      def self.perform_with_result(scraped_site, options = {})
-        # This is were the downloader passed to `initialize` is created.
-        new(RefreshTagFollowingDownloader.new(Downloader.new(base_url: scraped_site.url)))
-          .perform(scraped_site)
+      private
+
+      def downloader_for(scraped_site)
+        RefreshTagFollowingDownloader.new(Downloader.new(base_url: scraped_site.url))
       end
 
       def begin_try_catch
