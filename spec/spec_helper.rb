@@ -1,7 +1,9 @@
-require 'ostruct'
-
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+ENV['PAGEFLOW_PLUGIN_ENGINE'] = 'pageflow_chart'
+
+require 'pageflow/support'
+Pageflow::Dummy.setup
+
 require 'rspec/rails'
 
 engine_root = File.join(File.dirname(__FILE__), '..')
@@ -12,10 +14,4 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   config.order = "random"
-end
-
-module Pageflow
-  def self.config
-    OpenStruct.new( paperclip_s3_default_options: {})
-  end
 end
