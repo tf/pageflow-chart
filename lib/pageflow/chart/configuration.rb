@@ -59,7 +59,7 @@ module Pageflow
           selector_blacklist: ['body .noscript']
         }
         @paperclip_s3_default_options = {}
-        @paperclip_base_path = ':host'
+        @paperclip_base_path = ':pageflow_s3_root'
         @scraped_sites_root_url = nil
         @supported_hosts = [
           'http://cf.datawrapper.de',
