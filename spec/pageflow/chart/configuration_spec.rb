@@ -9,7 +9,7 @@ module Pageflow
 
           result = configuration.paperclip_options(extension: 'js')
 
-          expect(result[:path]).to eq(':host/:class/:id_partition/all.js')
+          expect(result[:path]).to eq(':pageflow_s3_root/:class/:id_partition/all.js')
         end
 
         it 'allows to override basename of path option' do
@@ -17,7 +17,7 @@ module Pageflow
 
           result = configuration.paperclip_options(basename: 'some', extension: 'js')
 
-          expect(result[:path]).to eq(':host/:class/:id_partition/some.js')
+          expect(result[:path]).to eq(':pageflow_s3_root/:class/:id_partition/some.js')
         end
 
         it 'uses paperclip_base_path as prefix' do
