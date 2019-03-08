@@ -1,4 +1,4 @@
-pageflow.react.registerPageTypeWithDefaultBackground('chart', {
+pageflow.react.registerPageTypeWithDefaultBackground('chart', _.extend({
 
   prepareNextPageTimeout: 0,
 
@@ -143,10 +143,7 @@ pageflow.react.registerPageTypeWithDefaultBackground('chart', {
   deactivated: function(pageElement, configuration) {},
 
   update: function(pageElement, configuration) {
-    pageElement.find('h2 .tagline').text(configuration.get('tagline') || '');
-    pageElement.find('h2 .title').text(configuration.get('title') || '');
-    pageElement.find('h2 .subtitle').text(configuration.get('subtitle') || '');
-    pageElement.find('p').html(configuration.get('text') || '');
+    this.updateDefaultPageContent(pageElement, configuration);
 
     pageElement.find('.shadow').css({
       opacity: configuration.get('gradient_opacity') / 100
@@ -177,4 +174,4 @@ pageflow.react.registerPageTypeWithDefaultBackground('chart', {
       }
     });
   }
-});
+}, pageflow.defaultPageContent));
