@@ -1,19 +1,5 @@
-.scraped_site_status {
-  .state {
-    display: none;
-  }
-
-  &.failed {
-    .failed.state {
-      display: block;
-    }
-  }
-
-  &.processing {
-    .processing.state {
-      display: block;
-    }
-  }
+.chart_scraped_site_url_input_view {
+  margin-bottom: 6px;
 }
 
 .datawrapper_ad {
@@ -23,6 +9,5 @@
     @include button('simple', #6AACF7);
     padding: 3px 10px;
     width: auto;
-    float: right;
   }
 }

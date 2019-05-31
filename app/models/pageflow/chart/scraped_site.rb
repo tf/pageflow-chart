@@ -1,6 +1,8 @@
 module Pageflow
   module Chart
     class ScrapedSite < ActiveRecord::Base
+      include Pageflow::ReusableFile
+
       has_attached_file :javascript_file, Chart.config.paperclip_options(extension: 'js')
       has_attached_file :stylesheet_file, Chart.config.paperclip_options(extension: 'css')
       has_attached_file :html_file, Chart.config.paperclip_options(extension: 'html')
@@ -44,10 +46,6 @@ module Pageflow
         URI.join(url, 'data.csv').to_s
       end
 
-      def as_json(*)
-        super.merge(html_file_url: html_file_url)
-      end
-
       def html_file_url
         return unless html_file.try(:path)
         if Chart.config.scraped_sites_root_url.present?
@@ -55,6 +53,27 @@ module Pageflow
         else
           html_file.url
         end
+      end
+
+      # ReusableFile-overrides:
+      def url
+        read_attribute(:url)
+      end
+
+      def retryable?
+        false
+      end
+
+      def ready?
+        processed?
+      end
+
+      def publish!
+        process!
+      end
+
+      def attachments_for_export
+        [javascript_file, stylesheet_file, html_file, csv_file]
       end
     end
   end

@@ -15,29 +15,23 @@ pageflow.chart.IframeEmbeddedView = Backbone.Marionette.View.extend({
   },
 
   updateScrapedSite: function() {
-    var view = this;
-
     if (this.scrapedSite) {
       this.stopListening(this.scrapedSite);
     }
 
-    var scrapedSiteId = this.model.get(this.options.propertyName);
+    this.scrapedSite = this.model.getReference(this.options.propertyName,
+                                               'pageflow_chart_scraped_sites');
+    this.updateAttributes();
 
-    if (scrapedSiteId) {
-      this.scrapedSite = pageflow.chart.scrapedSites.getOrFetch(scrapedSiteId, {
-        success: function(scrapedSite) {
-          view.updateAttributes(scrapedSite);
-        }
-      });
-
+    if (this.scrapedSite) {
       this.listenTo(this.scrapedSite, 'change', this.updateAttributes);
     }
   },
 
-  updateAttributes: function(scrapedSite) {
-    scrapedSite = scrapedSite || this.scrapedSite;
+  updateAttributes: function() {
+    var scrapedSite = this.scrapedSite;
 
-    if (scrapedSite && scrapedSite.isProcessed()) {
+    if (scrapedSite && scrapedSite.isReady()) {
       this.$el.attr('src', scrapedSite.get('html_file_url'));
 
       if (scrapedSite.get('use_custom_theme')) {
