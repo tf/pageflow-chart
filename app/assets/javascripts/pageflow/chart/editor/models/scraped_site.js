@@ -1,55 +1,16 @@
-pageflow.chart.ScrapedSite = Backbone.Model.extend({
-  modelName: 'scraped_site',
-  paramRoot: 'scraped_site',
-
-  initialize: function() {
-    this.listenTo(this, 'sync', function() {
-      if (this.isProcessing() && !this.pollingInterval) {
-        this.pollUntilScraped();
-      }
-    });
-  },
-
-  urlRoot: function() {
-    return '/chart/scraped_sites';
-  },
-
-  isProcessed: function() {
-    return this.get('state') === 'processed';
-  },
-
-  isProcessing: function() {
-    return this.get('state') === 'processing';
-  },
-
-  isFailed: function() {
-    return this.get('state') === 'processing_failed';
-  },
-
-  pollUntilScraped: function() {
-    var model = this;
-
-    if (model.isProcessed()) {
-      return;
+pageflow.chart.ScrapedSite = pageflow.UploadedFile.extend({
+  stages: [
+    {
+      name: 'processing',
+      activeStates: ['processing'],
+      finishedStates: ['processed'],
+      failedStates: ['processing_failed']
     }
+  ],
 
-    model.pollingInterval = setInterval(poll, 1000);
+  readyState: 'processed',
 
-    function stopPolling() {
-      if (model.pollingInterval) {
-        clearInterval(model.pollingInterval);
-        model.pollingInterval = null;
-      }
-    }
-
-    function poll() {
-      model.fetch({
-        success: function() {
-          if (!model.isProcessing()) {
-            stopPolling();
-          }
-        }
-      });
-    }
+  toJSON: function() {
+    return _.pick(this.attributes, 'url');
   }
 });

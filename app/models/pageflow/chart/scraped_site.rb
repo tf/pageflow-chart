@@ -1,6 +1,8 @@
 module Pageflow
   module Chart
     class ScrapedSite < ActiveRecord::Base
+      include Pageflow::UploadedFile
+
       has_attached_file :javascript_file, Chart.config.paperclip_options(extension: 'js')
       has_attached_file :stylesheet_file, Chart.config.paperclip_options(extension: 'css')
       has_attached_file :html_file, Chart.config.paperclip_options(extension: 'html')
@@ -40,12 +42,33 @@ module Pageflow
         true
       end
 
-      def csv_url
-        URI.join(url, 'data.csv').to_s
+      def publish!
+        process!
       end
 
-      def as_json(*)
-        super.merge(html_file_url: html_file_url)
+      def retryable?
+        false
+      end
+
+      def ready?
+        processed?
+      end
+
+      def basename
+        'unused'
+      end
+
+      def attachment
+        require 'ostruct'
+        OpenStruct.new(original_file: 'unused')
+      end
+
+      def original_url
+        url
+      end
+
+      def csv_url
+        URI.join(url, 'data.csv').to_s
       end
 
       def html_file_url
