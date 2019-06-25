@@ -1,4 +1,4 @@
-pageflow.chart.ScrapedSite = pageflow.UploadedFile.extend({
+pageflow.chart.ScrapedSite = pageflow.ReusableFile.extend({
   stages: [
     {
       name: 'processing',
