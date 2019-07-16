@@ -71,6 +71,10 @@ module Pageflow
       def publish!
         process!
       end
+
+      def attachments_for_export
+        [javascript_file, stylesheet_file, html_file, csv_file]
+      end
     end
   end
 end

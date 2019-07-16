@@ -26,5 +26,12 @@ module Pageflow::Chart
       expect(scraped_site_with_custom_theme.use_custom_theme).to eq(true)
       expect(scraped_site_without_custom_theme.use_custom_theme).to eq(false)
     end
+
+    it 'exposes all attachments for export' do
+      scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html')
+
+      expect(scraped_site.attachments_for_export.map(&:name))
+        .to eq(%i[javascript_file stylesheet_file html_file csv_file])
+    end
   end
 end
