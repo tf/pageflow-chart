@@ -8,6 +8,7 @@ cache: bundler
 
 services:
   - redis-server
+  - mysql
 
 script:
   - bin/rspec
