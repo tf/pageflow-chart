@@ -1,6 +1,7 @@
 @include pageflow-page-type-pictograms("chart");
 
 $chart-background: $basic-background-color;
+$chart-iframe-base-height: 400px !default;
 
 .chart_page {
   .iframeWrapper {
@@ -8,5 +9,7 @@ $chart-background: $basic-background-color;
       opacity: 0.95;
       background-color: $chart-background;
     }
+
+    height: $chart-iframe-base-height;
   }
 }
