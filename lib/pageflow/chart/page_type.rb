@@ -20,7 +20,7 @@ module Pageflow
       FileType.new(model: ScrapedSite,
                    custom_attributes: [:url],
                    editor_partial: 'pageflow/chart/editor/scraped_sites/scraped_site',
-                   importer: Chart::EntryExportImport::FileTypeImporters::ScrapedSiteImporter)
+                   custom_attributes: [:use_custom_theme])
     end
   end
 end
