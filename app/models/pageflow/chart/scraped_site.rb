@@ -25,6 +25,10 @@ module Pageflow
           transition 'unprocessed' => 'processing'
         end
 
+        event :skip_reprocessing_imported_site do
+          transition 'unprocessed' => 'processed'
+        end
+
         event :reprocess do
           transition 'processed' => 'processing'
           transition 'processing_failed' => 'processing'
@@ -69,7 +73,11 @@ module Pageflow
       end
 
       def publish!
-        process!
+        if html_file.present?
+          skip_reprocessing_imported_site!
+        else
+          process!
+        end
       end
 
       def attachments_for_export

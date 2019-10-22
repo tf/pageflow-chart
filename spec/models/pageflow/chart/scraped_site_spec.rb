@@ -33,5 +33,25 @@ module Pageflow::Chart
       expect(scraped_site.attachments_for_export.map(&:name))
         .to eq(%i[javascript_file stylesheet_file html_file csv_file])
     end
+
+    describe '#publish!' do
+      it 'transitions state to processing for new site' do
+        scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html')
+
+        scraped_site.publish!
+
+        expect(scraped_site.state).to eq('processing')
+      end
+
+      it 'transitions state to processed if html file is already set ' \
+         '(e.g. for sites that have been created via entry import)' do
+        scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html',
+                                       html_file_file_name: 'index.html')
+
+        scraped_site.publish!
+
+        expect(scraped_site.state).to eq('processed')
+      end
+    end
   end
 end
