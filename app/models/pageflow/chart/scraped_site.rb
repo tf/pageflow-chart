@@ -65,7 +65,7 @@ module Pageflow
       end
 
       def retryable?
-        false
+        processing_failed?
       end
 
       def ready?
@@ -78,6 +78,10 @@ module Pageflow
         else
           process!
         end
+      end
+
+      def retry!
+        reprocess!
       end
 
       def attachments_for_export

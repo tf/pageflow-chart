@@ -53,5 +53,32 @@ module Pageflow::Chart
         expect(scraped_site.state).to eq('processed')
       end
     end
+
+    describe '#retryable?' do
+      it 'is true if processing_failed' do
+        scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html',
+                                       state: 'processing_failed')
+
+        expect(scraped_site).to be_retryable
+      end
+
+      it 'is false if processed' do
+        scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html',
+                                       state: 'processed')
+
+        expect(scraped_site).not_to be_retryable
+      end
+    end
+
+    describe '#retry!' do
+      it 'transitions state to processing if processing_failed' do
+        scraped_site = ScrapedSite.new(url: 'http://example.com/foo/index.html',
+                                       state: 'processing_failed')
+
+        scraped_site.retry!
+
+        expect(scraped_site.state).to eq('processing')
+      end
+    end
   end
 end

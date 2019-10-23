@@ -5,12 +5,18 @@ pageflow.chart.ScrapedUrlInputView = pageflow.UrlInputView.extend({
     var url = this.ui.input.val();
 
     if (url) {
+      var scrapedSite = pageflow
+        .entry
+        .getFileCollection('pageflow_chart_scraped_sites')
+        .findOrCreateBy({url: url});
+
+      if (scrapedSite.isRetryable()) {
+        scrapedSite.retry();
+      }
+
       this.model.setReference(
         this.options.propertyName,
-        pageflow
-          .entry
-          .getFileCollection('pageflow_chart_scraped_sites')
-          .findOrCreateBy({url: url})
+        scrapedSite
       );
     }
     else {
