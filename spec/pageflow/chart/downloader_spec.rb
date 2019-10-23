@@ -17,17 +17,27 @@ module Pageflow
           expect(result).to eq("aaa")
         end
 
-        it 'ignores HTTP response 404' do
+        it 'ignores HTTP response 404 by default' do
           downloader = Downloader.new
           result = ''
 
-          stub_request(:get, "http://example.com/a").to_return(status: 404, body: 'aaa')
+          stub_request(:get, 'http://example.com/a').to_return(status: 404, body: 'aaa')
 
           downloader.load('http://example.com/a') do |io|
             result = io.read
           end
 
-          expect(result).to eq("")
+          expect(result).to eq('')
+        end
+
+        it 'supports raising error on HTTP response 404 ' do
+          downloader = Downloader.new
+
+          stub_request(:get, 'http://example.com/a').to_return(status: 404, body: 'aaa')
+
+          expect {
+            downloader.load('http://example.com/a', raise_on_http_error: true)
+          }.to raise_error(Downloader::HTTPError)
         end
 
         it 'derives protocol from base_url' do

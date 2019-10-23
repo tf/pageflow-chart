@@ -17,7 +17,7 @@ module Pageflow
           result = ''
 
           allow(downloader).to receive(:load)
-            .with(original_url)
+            .with(original_url, {})
             .and_yield(StringIO.new(chart_html))
 
           refresh_tag_following_downloader.load_following_refresh_tags(original_url) do |file|
@@ -25,6 +25,19 @@ module Pageflow
           end
 
           expect(result).to eq(chart_html)
+        end
+
+        it 'passes raise_on_http_error to downloader' do
+          downloader = double(Downloader).as_null_object
+          refresh_tag_following_downloader = RefreshTagFollowingDownloader.new(downloader)
+
+          original_url = 'http://datawrapper.dwcdn.net/HPKfl/2/'
+
+          expect(downloader).to receive(:load)
+            .with(original_url, raise_on_http_error: true)
+
+          refresh_tag_following_downloader.load_following_refresh_tags(original_url,
+                                                                       raise_on_http_error: true)
         end
 
         it 'looks for refresh meta tags and loads their url instead' do
@@ -44,11 +57,11 @@ module Pageflow
           result = ''
 
           allow(downloader).to receive(:load)
-            .with(original_url)
+            .with(original_url, {})
             .and_yield(StringIO.new(redirect_html))
 
           allow(downloader).to receive(:load)
-            .with(target_url)
+            .with(target_url, {})
             .and_yield(StringIO.new(chart_html))
 
           refresh_tag_following_downloader.load_following_refresh_tags(original_url) do |file|
@@ -75,11 +88,11 @@ module Pageflow
           result = ''
 
           allow(downloader).to receive(:load)
-            .with(original_url)
+            .with(original_url, {})
             .and_yield(StringIO.new(redirect_html))
 
           allow(downloader).to receive(:load)
-            .with(target_url)
+            .with(target_url, {})
             .and_yield(StringIO.new(chart_html))
 
           refresh_tag_following_downloader.load_following_refresh_tags(original_url) do |file|
@@ -106,11 +119,11 @@ module Pageflow
           result = ''
 
           allow(downloader).to receive(:load)
-            .with(original_url)
+            .with(original_url, {})
             .and_yield(StringIO.new(redirect_html))
 
           allow(downloader).to receive(:load)
-            .with(target_url)
+            .with(target_url, {})
             .and_yield(StringIO.new(chart_html))
 
           refresh_tag_following_downloader.load_following_refresh_tags(original_url) do |file|
@@ -130,7 +143,7 @@ module Pageflow
             <html><head><meta http-equiv="REFRESH" content="0; url=#{original_url}"></head></html>
           HTML
 
-          allow(downloader).to receive(:load).with(original_url) do |&block|
+          allow(downloader).to receive(:load).with(original_url, {}) do |&block|
             block.call(StringIO.new(redirect_html))
           end
 
@@ -149,7 +162,7 @@ module Pageflow
             <html><head><meta http-equiv="REFRESH" content="something strange"></head></html>
           HTML
 
-          allow(downloader).to receive(:load).with(original_url).and_yield(StringIO.new(redirect_html))
+          allow(downloader).to receive(:load).with(original_url, {}).and_yield(StringIO.new(redirect_html))
 
           expect {
             refresh_tag_following_downloader.load_following_refresh_tags(original_url)
@@ -166,7 +179,7 @@ module Pageflow
             <html><head><meta http-equiv="REFRESH"></head></html>
           HTML
 
-          allow(downloader).to receive(:load).with(original_url).and_yield(StringIO.new(redirect_html))
+          allow(downloader).to receive(:load).with(original_url, {}).and_yield(StringIO.new(redirect_html))
 
           expect {
             refresh_tag_following_downloader.load_following_refresh_tags(original_url)
