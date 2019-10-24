@@ -12,6 +12,9 @@ pageflow.ConfigurationEditorView.register('chart', {
         displayPropertyName: 'display_scraped_site_url',
         required: true
       });
+      this.input('scraped_site_id', pageflow.FileProcessingStateDisplayView, {
+        collection: 'pageflow_chart_scraped_sites'
+      });
       this.view(pageflow.chart.DatawrapperAdView);
       this.input('full_width', pageflow.CheckBoxInputView);
       this.group('background');

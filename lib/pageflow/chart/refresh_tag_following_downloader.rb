@@ -9,15 +9,15 @@ module Pageflow
       class TooManyRedirects < StandardError; end
       class NoUrlInRefreshMetaTag < StandardError; end
 
-      def load_following_refresh_tags(url, redirect_count = 0, &block)
-        load(url) do |file|
+      def load_following_refresh_tags(url, options = {}, redirect_count = 0, &block)
+        load(url, options) do |file|
           if (redirect_url = find_refresh_meta_tag_url(file.read))
             if redirect_count >= MAX_REDIRECT_COUNT
               raise TooManyRedirects, 'Too many redirects via refresh meta tags.'
             end
 
             redirect_url = ensure_absolute(redirect_url, url)
-            return load_following_refresh_tags(redirect_url, redirect_count + 1, &block)
+            return load_following_refresh_tags(redirect_url, options, redirect_count + 1, &block)
           end
 
           file.rewind

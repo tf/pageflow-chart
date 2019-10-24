@@ -8,7 +8,8 @@ module Pageflow
       def perform_with_result(scraped_site,
                               _options = {},
                               downloader: downloader_for(scraped_site))
-        downloader.load_following_refresh_tags(scraped_site.url) do |file|
+        downloader.load_following_refresh_tags(scraped_site.url,
+                                               raise_on_http_error: true) do |file|
           scraper = Scraper.new(file.read, Chart.config.scraper_options)
           scraped_site.html_file = StringIOWithContentType.new(
             scraper.html,
@@ -35,6 +36,8 @@ module Pageflow
         end
 
         :ok
+      rescue Downloader::HTTPError
+        :error
       end
 
       private

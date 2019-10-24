@@ -1,49 +1,28 @@
 pageflow.chart.ScrapedUrlInputView = pageflow.UrlInputView.extend({
-  template: 'pageflow/chart/editor/templates/url_input',
+  className: 'chart_scraped_site_url_input_view',
 
-  regions: {
-    statusContainer: '.status_container'
-  },
+  save: function() {
+    var url = this.ui.input.val();
 
-  onLoad: function() {
-    this.listenTo(this.model, 'change:' + this.options.propertyName, function() {
-      this.updateScrapingStatus();
-    });
+    if (url) {
+      var scrapedSite = pageflow
+        .entry
+        .getFileCollection('pageflow_chart_scraped_sites')
+        .findOrCreateBy({url: url});
 
-    this.updateScrapingStatus();
-  },
+      if (scrapedSite.isRetryable()) {
+        scrapedSite.retry();
+      }
 
-  transformPropertyValue: function(url) {
-    return $.Deferred(function(deferred) {
-      pageflow.chart.scrapedSites.create(
-        {
-          url: url
-        },
-        {
-          success: function(scrapedSite) {
-            deferred.resolve(scrapedSite.id);
-          }
-        }
+      this.model.setReference(
+        this.options.propertyName,
+        scrapedSite
       );
-    }).promise();
-  },
-
-  updateScrapingStatus: function() {
-    var scrapedSite = this.getScrapedSite();
-
-    if (scrapedSite) {
-      this.statusContainer.show(new pageflow.chart.ScrapedSiteStatusView({
-        model: scrapedSite
-      }));
     }
     else {
-      this.statusContainer.close();
-    }
-  },
-
-  getScrapedSite: function() {
-    if (this.model.has(this.options.propertyName)) {
-      return pageflow.chart.scrapedSites.getOrFetch(this.model.get(this.options.propertyName));
+      this.model.unsetReference(
+        this.options.propertyName
+      );
     }
   }
 });

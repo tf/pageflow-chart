@@ -12,7 +12,7 @@ module Pageflow
       }
 
       def scraped_site_iframe(scraped_site_id)
-        scraped_site = ScrapedSite.find_by_id(scraped_site_id)
+        scraped_site = find_file_in_entry(ScrapedSite, scraped_site_id)
         data_attributes = {}
 
         if scraped_site

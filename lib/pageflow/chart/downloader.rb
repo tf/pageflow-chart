@@ -6,15 +6,18 @@ module Pageflow
     class Downloader
       attr_reader :options
 
+      class HTTPError < StandardError; end
+
       def initialize(options = {})
         @options = options
       end
 
-      def load(url)
+      def load(url, raise_on_http_error: false)
         file = open(make_absolute(url))
         yield(file)
       rescue OpenURI::HTTPError => exception
         Rails.logger.error "Exception loading url #{url}: #{exception.message}"
+        raise(HTTPError) if raise_on_http_error
       ensure
         file.close if file
       end
